@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO user (username, name, password)
+    $sql = "INSERT INTO users (username, name, password)
     VALUES ('$username', '$name', '$hashedPassword')";
     if ($conn->query($sql) === TRUE) {
       // Simpan notifikasi ke dalam session
