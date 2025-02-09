@@ -10,7 +10,7 @@ if (isset($_POST['simpan'])) {
     // Mendapatkan data dari form
     $postingan = $_POST["post_title"]; // Judul postingan
     $content = $_POST["content"]; // Konten postingan
-    $category = $_POST["cetegory"]; // ID kategori
+    $categoryId = $_POST["category"]; // ID kategori
 
     // Mengatur direktori penyimpanan file gambar
     $imageDir = "assets/img/uploads/";
@@ -18,7 +18,7 @@ if (isset($_POST['simpan'])) {
     $iamgePath = $imageDir . basename($imageName); // Path lengkap gambar
 
     // Memindahkan file gambar yang diunggah ke direktori tujuan
-    if (move_upload_file($_FILES["image"]["tmp_name"], $iamgePath)) {
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
         // Jika unggahan berhasil, masukkan
         // data postingan ke dalam database
         $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id, iamge_path) VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$iamgePath')";
@@ -45,7 +45,7 @@ if (isset($_POST['simpan'])) {
     }
 
     // Arahkan ke halaman dashboard setelah selesai
-    keader('Location: dashboard.php');
+    header('Location: dashboard.php');
     exit();
 }
 
@@ -60,12 +60,12 @@ if (isset($_POST['delete'])) {
     // Menyimpan notifikasi kerberhasilan atau kegagalan ke dalam session
     if ($exec) {
         $_SESSION['notification'] = [
-            'type' =. 'danger',
+            'type' => 'danger',
             'message' => 'Post successfully deleted.'
         ];
     } else {
         $_SESSION['notification'] = [
-            'type' =. 'danger',
+            'type' => 'danger',
             'message' => 'Error deleting post: ' . mysqli_error($conn)
         ];
     }
