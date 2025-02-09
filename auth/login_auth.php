@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        echo $row["password"];
         // Verifikasi password
         if (password_verify($password, $row["password"])) {
           $_SESSION["username"] = $username;
