@@ -10,7 +10,7 @@ if (isset($_POST['simpan'])) {
     // Mendapatkan data dari form
     $postingan = $_POST["post_title"]; // Judul postingan
     $content = $_POST["content"]; // Konten postingan
-    $categoryId = $_POST["category"]; // ID kategori
+    $categoryId = $_POST["category_id"]; // ID kategori
 
     // Mengatur direktori penyimpanan file gambar
     $imageDir = "assets/img/uploads/";
