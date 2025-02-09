@@ -21,7 +21,7 @@ if (isset($_POST['simpan'])) {
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
         // Jika unggahan berhasil, masukkan
         // data postingan ke dalam database
-        $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id, iamge_path) VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$iamgePath')";
+        $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id, image_path) VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
         if ($conn->query($query) === TRUE) {
             // Notifikasi berhasil jika postingan berhasil ditambahkan
@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     // Update data postingan di database
     $queryUpdate = "UPDATE posts SET post_title = '$postTitle',
         content = '$content', category_id = $categoryId,
-        image_path = '$imagePath WHERE id_post = $postId";
+        image_path = '$imagePath' WHERE id_post = '$postId'";
         
     if ($conn->query($queryUpdate) === TRUE) {
         // Notifikasi berhasil
