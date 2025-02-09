@@ -8,3 +8,14 @@ $notification = $_SESSION['notification'] ?? null;
 if ($notification) {
   unset($_SESSION['notification']);
 }
+
+/* Periksa apakah sesi username dan role sudah ada,
+jika tidak arahkan ke halaman login */
+if (empty($_SESSION["username"]) || empty($_SESSION["role"])) {
+  $_SESSION['notification'] = [
+    'type' => 'danger',
+    'message' => 'Silakan Login Terlebih Dahulu!'
+  ];
+  header('Location: ./auth/login.php');
+  exit(); // Pastikan scribe berhenti setelah pengalihan
+}
