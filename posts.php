@@ -18,7 +18,7 @@ include '.includes/header.php';
                         <!-- Input untuk mengunggah gambar -->
                         <div class="mb-3">
                             <label for="formFile" class="form-tabel">Unggah Gambar</label>
-                            <input class="form-control" type="file" name"image" accept="image/*" />
+                            <input class="form-control" type="file" name"image" accept="image/*">
                         </div>
                         <!-- Dropdown untuk memilih kategori -->
                         <div class="mb-3">
@@ -39,7 +39,7 @@ include '.includes/header.php';
                         </div>
                         <!-- Textarea untuk konten postingan -->
                         <div class="mb-3">
-                            <label for="content" clss="form-label">Konten</label>
+                            <label for="content" class="form-label">Konten</label>
                             <textarea class="form-content" id="content" name="content" required></textarea>
                         </div>
                         <!-- Tombol submit -->
