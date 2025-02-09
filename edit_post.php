@@ -60,14 +60,14 @@ if ($result->num_rows > 0) {
                                 <option value="" selected disabled>Select one</option>
                                 <?php
                                 // Mengambil data kategori dari database
-                                $queryCategories = "SELECT FROM categories";
+                                $queryCategories = "SELECT * FROM categories";
                                 $resultCategories = $conn->query($queryCategories);
                                 // Menambahkan opsi ke dropdown
                                 if ($resultCategories->num_rows > 0) {
                                     while ($row = $resultCategories->fetch_assoc()) {
                                         // Menandai kategori yang sudah dipilih
                                         $selected= ($row["category_id"] == $post['category_id']) ? "selected" : "";
-                                        echo "<option value=". $row["category_id"]. "' $selected>" . $row["category_name"]. "</option>";
+                                        echo "<option value='". $row["category_id"]. "' $selected>" . $row["category_name"]. "</option>";
                                     }
                                 }
                                 ?>
