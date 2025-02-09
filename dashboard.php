@@ -35,7 +35,7 @@ include '.includes/toast_notification.php';
                                 categories.category_name FROM posts
                                 INNER JOIN users ON posts.user_id = users.user_id
                                 LEFT JOIN categories ON posts.category_id = categories.category_id
-                                WHERE posts.user_id = ".$_SESSION["user_id"]??"";
+                                WHERE posts.user_id = " . ($_SESSION["user_id"] ?? "");
                                 // Eksekusi query
                                 $exec = mysqli_query($conn, $query);
 
@@ -86,7 +86,7 @@ include '.includes/toast_notification.php';
                                                         <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
                                                     </div>
                                                 </form>
-                                            </div.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
