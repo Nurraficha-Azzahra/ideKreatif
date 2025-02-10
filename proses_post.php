@@ -5,6 +5,9 @@ include 'config.php';
 // Memulai sesi PHP
 session_start();
 
+// Mendapatkan ID pengguna dari sesi
+$userId = $ $_SESSION["user_id"];
+
 // Mendapatkan form untuk menambahkan postingan baru
 if (isset($_POST['simpan'])) {
     // Mendapatkan data dari form
